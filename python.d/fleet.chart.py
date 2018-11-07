@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Description: Kolide fleet statistics
 # Author: srozb
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-License-Identifier: MIT License
 
 import os
 import json
