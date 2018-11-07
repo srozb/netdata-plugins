@@ -16,14 +16,14 @@ retries = 60
 ORDER = ['bytes', 'events']
 CHARTS = {
     'bytes': {
-        'options': [None, 'bytes', 'bytes', 'filebeat', 'filebeat', 'line'],
+        'options': [None, 'bytes', 'bytes', 'output', 'output', 'line'],
         'lines': [
             ['read', 'Bytes read', 'absolute', 1, 1], 
             ['write',  'Bytes write', 'absolute', 1, 1],
         ]
     },
     'events': {
-        'options': [None, 'events', 'events', 'filebeat', 'filebeat', 'line'],
+        'options': [None, 'events', 'events', 'output', 'output', 'line'],
         'lines': [
             ['acked', 'events', 'absolute', 1, 1]
         ]
@@ -54,6 +54,6 @@ class Service(LogService):
                 self.data['read'] = match['monitoring']['metrics']['libbeat']['output']['read']['bytes']
                 self.data['write'] = match['monitoring']['metrics']['libbeat']['output']['write']['bytes']
                 self.data['acked'] = match['monitoring']['metrics']['libbeat']['output']['events']['acked']
-            except IndexError:
+            except:
                 pass
         return self.data
